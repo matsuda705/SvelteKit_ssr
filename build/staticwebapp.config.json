@@ -20,6 +20,10 @@
       "headers": {
         "cache-control": "public, immutable, max-age=31536000"
       }
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["testRole"]
     }
   ],
   "navigationFallback": {
@@ -27,5 +31,11 @@
   },
   "platform": {
     "apiRuntime": "node:18"
+  },
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    }
   }
 }
