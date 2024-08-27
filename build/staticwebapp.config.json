@@ -13,7 +13,8 @@
         "PUT",
         "DELETE"
       ],
-      "rewrite": "/api/__render"
+      "rewrite": "/api/__render",
+      "allowedRoles": ["testRole"]
     },
     {
       "route": "/_app/immutable/*",
