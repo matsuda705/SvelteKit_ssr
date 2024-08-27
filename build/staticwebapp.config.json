@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "route": "/api/*"
+    },
+    {
+      "route": "/data-api/*"
+    },
+    {
+      "route": "*",
+      "methods": [
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "rewrite": "/api/__render"
+    },
+    {
+      "route": "/_app/immutable/*",
+      "headers": {
+        "cache-control": "public, immutable, max-age=31536000"
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/api/__render"
+  },
+  "platform": {
+    "apiRuntime": "node:18"
+  }
+}
